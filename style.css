@@ -1,0 +1,79 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+
+  background:
+    url('backgrounds/LogoMakr-7S90Pz.png') center 10% / contain no-repeat,
+    #0d0d0d;
+
+  color: #fff;
+}
+
+/* Top-aligned layout */
+.container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 360px;
+  width: 100%;
+}
+
+/* Heading at the top of the page */
+.page-title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* ⭐ fixed 3 columns */
+  gap: 24px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ⭐ Center Immich tile (#4) under tile #2 */
+.tile:nth-child(4) {
+  grid-column: 2;
+}
+
+.tile {
+  background: rgba(255, 255, 255, 0.05); /* more transparent */
+  backdrop-filter: blur(4px);           /* stronger frost */
+  -webkit-backdrop-filter: blur(4px);   /* Safari support */
+
+  padding: 16px;
+  border-radius: 18px;
+
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18); /* softer, more glass-like */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+.tile img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 12px;
+}
+
