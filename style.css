@@ -1,4 +1,4 @@
-html, body {
+hhtml, body {
   height: 100%;
   margin: 0;
 }
@@ -8,7 +8,7 @@ body {
   padding: 0;
   font-family: system-ui, -apple-system, sans-serif;
 
-  /* Midnight Blue Gradient - Seamlessly blends with the logo edges */
+  /* Layers the logo over a deep midnight radial gradient */
   background: 
     url('backgrounds/WHE-Brand-Logo.png') center 5% / contain no-repeat fixed,
     radial-gradient(circle at center, #0a1426 0%, #050a14 100%);
@@ -18,25 +18,29 @@ body {
   overflow-x: hidden;
 }
 
+/* Remove the header text completely */
+.page-title {
+  display: none !important;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* DESKTOP: Clears the logo text */
-  padding-top: 80vh; 
+  /* Tweaked to 78vh per your preference */
+  padding-top: 78vh; 
   box-sizing: border-box;
 }
 
 /* MOBILE SETTINGS */
 @media (max-width: 768px) {
   .container {
-    /* MOBILE: Keeps tiles in the sweet spot below the dog's paws */
     padding-top: 58vh; 
   }
   .grid {
-    display: grid !important; /* Forces 2x2 grid */
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px !important;
     width: auto !important;
@@ -52,7 +56,6 @@ body {
 }
 
 .tile {
-  /* Blue-tinted Glassmorphism */
   background: rgba(10, 20, 38, 0.5); 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -67,7 +70,6 @@ body {
   height: 85px; 
   
   box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  /* Smooth transition for the "App" feel */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   display: flex;
@@ -79,7 +81,7 @@ body {
 }
 
 .tile:hover {
-  height: 115px; /* Expands to show label */
+  height: 115px; /* Expansion to reveal label */
   background: rgba(16, 29, 51, 0.9);
   border-color: #d4af37;
   box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
@@ -93,10 +95,10 @@ body {
 }
 
 .tile:hover img {
-  transform: translateY(-12px); /* Slides icon up */
+  transform: translateY(-12px);
 }
 
-/* Hidden Label logic */
+/* Label Hidden by default, reveals on hover */
 .tile span {
   position: absolute;
   bottom: 12px;
