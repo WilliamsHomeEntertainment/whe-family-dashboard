@@ -29,8 +29,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* Tweaked to 78vh per your preference */
-  padding-top: 78vh; 
+  /* DESKTOP: Increased to 90vh now that the title is gone */
+  padding-top: 90vh; 
   box-sizing: border-box;
 }
 
