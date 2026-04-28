@@ -1,7 +1,6 @@
 html, body {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Prevents accidental scrolling */
 }
 
 body {
@@ -9,12 +8,12 @@ body {
   padding: 0;
   font-family: system-ui, -apple-system, sans-serif;
 
-  /* THREE-STOP GRADIENT: This matches the logo center, the glow, and the outer darkness */
+  /* Re-blended Gradient: Matches the indigo glow of the logo and fades to black */
   background: 
-    url('backgrounds/WHE-Brand-Logo.png') center 15% / 85% no-repeat fixed,
-    radial-gradient(circle at center, #1a2a44 0%, #0a1426 40%, #050a14 100%);
+    url('backgrounds/WHE-Brand-Logo.png') center 5% / contain no-repeat fixed,
+    radial-gradient(circle at center, #0e1a2d 0%, #050a14 70%, #000000 100%);
 
-  background-color: #050a14; 
+  background-color: #000000; 
   color: #fff;
 }
 
@@ -23,57 +22,53 @@ body {
 }
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Pins icons to the bottom of the screen */
-  justify-content: flex-end; 
-  padding-bottom: 4vh; 
+  justify-content: flex-start;
+  /* Desktop: Lowered to clear the logo name without hiding it */
+  padding-top: 88vh; 
   box-sizing: border-box;
 }
 
-/* MOBILE SETTINGS */
+/* MOBILE FIX: Centers the 2x2 grid properly */
 @media (max-width: 768px) {
-  body {
-    background-size: contain; /* Let it fill more space on mobile */
-    overflow-y: auto; /* Allow scrolling on mobile if needed */
-  }
   .container {
-    justify-content: flex-start;
-    padding-top: 60vh;
-    height: auto;
+    padding-top: 58vh; 
   }
   .grid {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px !important;
+    grid-template-columns: repeat(2, min-content); /* Centers tiles tightly */
+    justify-content: center; /* Centers the whole 2x2 block */
+    gap: 20px !important;
+    width: 100% !important;
   }
 }
 
 .grid {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   padding: 20px;
   justify-content: center;
   width: 100%;
 }
 
 .tile {
-  background: rgba(10, 20, 38, 0.6); 
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(10, 20, 38, 0.5); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   
-  padding: 10px;
+  padding: 12px;
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.15);
   
   text-decoration: none;
   color: inherit;
-  width: 80px; 
-  height: 80px; 
+  width: 85px; 
+  height: 85px; 
   
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   display: flex;
@@ -81,35 +76,36 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 }
 
 .tile:hover {
-  height: 100px;
-  background: rgba(26, 42, 68, 0.9);
+  height: 115px;
+  background: rgba(16, 29, 51, 0.9);
   border-color: #d4af37;
-  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.3);
 }
 
 .tile img {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .tile:hover img {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
 }
 
 .tile span {
   position: absolute;
-  bottom: 10px;
-  font-size: 0.7rem;
+  bottom: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   color: #d4af37;
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(10px);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .tile:hover span {
