@@ -45,20 +45,19 @@ body {
 /* --- MOBILE: TRUE 3x2 GRID + MOBILE HOVER FIX --- */
 @media (max-width: 768px) {
 
-  /* Push icons to bottom */
+  /* Place icons closer to hero */
   .container {
-    margin-top: auto;
-    padding-bottom: 6vh;
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 32vh;   /* closer to hero, adjust if needed */
+    padding-bottom: 4vh;
+    display: block;
   }
 
-  /* 3x2 grid */
+  /* 3x2 grid with normal spacing */
   .grid {
     display: grid !important;
     grid-template-columns: repeat(3, 70px);
     grid-template-rows: repeat(2, 70px);
-    gap: 16px !important;
+    gap: 24px !important;   /* restored normal spacing */
     justify-content: center;
     width: 100% !important;
     padding: 0;
@@ -69,7 +68,7 @@ body {
     width: 70px;
     height: 70px;
     position: relative;
-    z-index: 1; /* base stacking */
+    z-index: 1;
   }
 
   /* Mobile icon size */
@@ -88,11 +87,11 @@ body {
     transform: translateY(-4px);
   }
 
-  /* --- MOBILE HOVER FIX: lift upward instead of expanding downward --- */
+  /* Mobile hover fix */
   .tile:hover {
-    height: 70px; /* prevent downward growth */
-    transform: translateY(-10px); /* lift upward */
-    z-index: 999; /* ensure label appears above next tile */
+    height: 70px;
+    transform: translateY(-10px);
+    z-index: 999;
   }
 }
 
