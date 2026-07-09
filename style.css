@@ -43,20 +43,21 @@ body {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+/* --- MOBILE: TRUE 3x2 GRID + FIX LABEL OVERLAP --- */
+@media (max-width: 480px) {
 
-  /* Allow grid to expand full width */
+  /* Push icons to bottom */
   .container {
     margin-top: auto;
     padding-bottom: 6vh;
-    display: block; /* <-- THIS is the fix */
-    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
-  /* True 3x2 grid */
+  /* 3x2 grid that actually fits on phones */
   .grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 70px);
+    grid-template-columns: repeat(3, 70px); /* smaller icons fit 3 across */
     grid-template-rows: repeat(2, 70px);
     gap: 16px !important;
     justify-content: center;
@@ -64,11 +65,13 @@ body {
     padding: 0;
   }
 
+  /* Shrink tile size */
   .tile {
     width: 70px;
     height: 70px;
   }
 
+  /* Shrink icon image */
   .tile img {
     width: 40px;
     height: 40px;
@@ -81,11 +84,9 @@ body {
   }
 
   .tile:hover span {
-    transform: translateY(-4px);
+    transform: translateY(-4px); /* pop upward */
   }
 }
-
-
 
 /* --- TABLET LAYOUT --- */
 @media (max-width: 768px) {
