@@ -50,6 +50,25 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin-top: auto;        /* stop forcing icons upward */
+    padding-bottom: 6vh;     /* add breathing room at bottom */
+    display: flex;
+    justify-content: flex-end; /* push grid to bottom */
+  }
+
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 85px); /* 3 across */
+    grid-template-rows: repeat(2, 85px);    /* 2 down */
+    gap: 20px !important;
+    justify-content: center;
+    width: 100% !important;
+    padding: 0;
+  }
+}
+
 /* --- TABLET LAYOUT --- */
 @media (max-width: 768px) {
   .grid {
