@@ -1,3 +1,4 @@
+/* --- GLOBAL RESET --- */
 html, body {
   height: 100%;
   margin: 0;
@@ -12,28 +13,45 @@ body {
     url('backgrounds/WHE-Brand-Logo.png') center 5% / contain no-repeat fixed,
     radial-gradient(circle at center, #0e1a2d 0%, #040b18 60%, #040b18 100%);
 
-  background-color: #040b18; 
+  background-color: #040b18;
   color: #fff;
 }
 
+/* --- HIDE DEFAULT PAGE TITLE --- */
 .page-title {
   display: none !important;
 }
 
+/* --- HERO-CENTRIC LAYOUT --- */
 .container {
+  /* Responsive spacing below the Williams Home Entertainment hero */
+  margin-top: clamp(28vh, 34vh, 42vh);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 85vh; 
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+/* --- ICON GRID --- */
+.grid {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* --- MOBILE SPACING (closer on phones) --- */
+@media (max-width: 480px) {
   .container {
-    padding-top: 58vh; 
+    margin-top: 22vh; /* closer spacing for small screens */
   }
+}
+
+/* --- TABLET LAYOUT --- */
+@media (max-width: 768px) {
   .grid {
     display: grid !important;
     grid-template-columns: repeat(2, 85px);
@@ -44,28 +62,21 @@ body {
   }
 }
 
-.grid {
-  display: flex;
-  gap: 24px;
-  padding: 20px;
-  justify-content: center;
-  width: 100%;
-}
-
+/* --- TILE STYLE --- */
 .tile {
-  background: rgba(5, 11, 22, 0.7); 
+  background: rgba(5, 11, 22, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  
+
   padding: 12px;
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.15);
-  
+
   text-decoration: none;
   color: inherit;
-  width: 85px; 
-  height: 85px; 
-  
+  width: 85px;
+  height: 85px;
+
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
@@ -83,6 +94,7 @@ body {
   border-color: #d4af37;
 }
 
+/* --- ICON IMAGE --- */
 .tile img {
   width: 48px;
   height: 48px;
@@ -94,6 +106,7 @@ body {
   transform: translateY(-12px);
 }
 
+/* --- LABEL TEXT --- */
 .tile span {
   position: absolute;
   bottom: 12px;
@@ -110,3 +123,4 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
