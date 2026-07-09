@@ -53,7 +53,7 @@ body {
   /* Center container + prevent overlap */
   .container {
     margin-top: clamp(54vh, 58vh, 62h); /* your current spacing */
-    padding-bottom: 6vh;
+    padding-bottom: 4vh;
     width: 100%;
     display: flex;
     flex-direction: column;
