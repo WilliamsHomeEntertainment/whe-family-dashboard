@@ -62,12 +62,13 @@ html, body {
   grid-template-columns: repeat(3, 85px);
   grid-template-rows: repeat(2, 85px);
 
-  row-gap: 32px;      /* vertical spacing between rows */
-  column-gap: 28px;   /* horizontal spacing between icons */
+  row-gap: 32px;
+  column-gap: 28px;
 
   justify-content: center;
-}
 
+  overflow: visible; /* <-- REQUIRED so hover labels can float above */
+}
 
 /* --- TILE STYLE --- */
 .tile {
@@ -88,7 +89,9 @@ html, body {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+
+  z-index: 2; /* <-- ensures tile sits above grid base */
+  overflow: visible; /* <-- allows label to escape tile */
 }
 
 .tile:hover {
