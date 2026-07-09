@@ -9,11 +9,11 @@ html, body {
 
 /* --- HERO SECTION --- */
 .hero {
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 60vh;
+  justify-content: flex-end;
   background:
     url('backgrounds/WHE-Brand-Logo.png') center 20% / contain no-repeat,
     radial-gradient(circle at center, #0e1a2d 0%, #040b18 60%, #040b18 100%);
