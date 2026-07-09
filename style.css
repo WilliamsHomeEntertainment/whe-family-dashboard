@@ -47,7 +47,7 @@ body {
 
   /* Place icons just below hero */
   .container {
-    margin-top: clamp(36vh, 40vh, 44vh); /* responsive hero spacing */
+    margin-top: clamp(56vh, 60vh, 64vh); /* responsive hero spacing */
     padding-bottom: 4vh;
     display: block;
   }
