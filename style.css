@@ -24,7 +24,6 @@ body {
 
 /* --- HERO-CENTRIC LAYOUT --- */
 .container {
-  /* Responsive spacing below the Williams Home Entertainment hero */
   margin-top: clamp(28vh, 34vh, 42vh);
   min-height: 100vh;
   display: flex;
@@ -43,7 +42,7 @@ body {
   width: 100%;
 }
 
-/* --- MOBILE: TRUE 3x2 GRID + FIX LABEL OVERLAP --- */
+/* --- MOBILE: TRUE 3x2 GRID + MOBILE HOVER FIX --- */
 @media (max-width: 768px) {
 
   /* Push icons to bottom */
@@ -54,10 +53,10 @@ body {
     justify-content: flex-end;
   }
 
-  /* 3x2 grid that actually fits on phones */
+  /* 3x2 grid */
   .grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 70px); /* smaller icons fit 3 across */
+    grid-template-columns: repeat(3, 70px);
     grid-template-rows: repeat(2, 70px);
     gap: 16px !important;
     justify-content: center;
@@ -65,42 +64,39 @@ body {
     padding: 0;
   }
 
-  /* Shrink tile size */
+  /* Mobile tile size */
   .tile {
     width: 70px;
     height: 70px;
+    position: relative;
+    z-index: 1; /* base stacking */
   }
 
-  /* Shrink icon image */
+  /* Mobile icon size */
   .tile img {
     width: 40px;
     height: 40px;
   }
 
-  /* Fix label overlap */
+  /* Mobile label positioning */
   .tile span {
     bottom: 4px;
     transform: translateY(6px);
   }
 
   .tile:hover span {
-    transform: translateY(-4px); /* pop upward */
+    transform: translateY(-4px);
+  }
+
+  /* --- MOBILE HOVER FIX: lift upward instead of expanding downward --- */
+  .tile:hover {
+    height: 70px; /* prevent downward growth */
+    transform: translateY(-10px); /* lift upward */
+    z-index: 999; /* ensure label appears above next tile */
   }
 }
 
-/* --- TABLET LAYOUT --- */
-@media (max-width: 1024px) {
-  .grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, 85px);
-    justify-content: center;
-    gap: 20px !important;
-    width: 100% !important;
-    padding: 0;
-  }
-}
-
-/* --- TILE STYLE --- */
+/* --- TILE STYLE (DESKTOP) --- */
 .tile {
   background: rgba(5, 11, 22, 0.7);
   backdrop-filter: blur(12px);
@@ -126,18 +122,11 @@ body {
   overflow: hidden;
 }
 
+/* --- DESKTOP HOVER --- */
 .tile:hover {
   height: 115px;
   background: rgba(16, 29, 51, 0.95);
   border-color: #d4af37;
-}
-
-/* --- ICON IMAGE --- */
-.tile img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
 .tile:hover img {
