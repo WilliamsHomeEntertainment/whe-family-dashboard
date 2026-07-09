@@ -106,9 +106,25 @@ html, body {
 /* --- MOBILE TWEAKS --- */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(2, 85px);
-    row-gap: 28px;
-    column-gap: 24px;
+    grid-template-columns: repeat(3, 85px); /* keep 3 columns */
+    row-gap: 32px;
+    column-gap: 28px;
+  }
+
+  .tile {
+    height: 85px; /* stable tile height */
+  }
+
+  .tile span {
+    position: static;
+    display: block;
+    margin-top: 6px;
+    opacity: 1;
+    transform: none;
+    background: none;
+    color: #d4af37;
+    text-align: center;
   }
 }
+
 
