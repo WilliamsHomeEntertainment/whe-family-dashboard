@@ -44,7 +44,7 @@ body {
 }
 
 /* --- MOBILE: TRUE 3x2 GRID + FIX LABEL OVERLAP --- */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
 
   /* Push icons to bottom */
   .container {
