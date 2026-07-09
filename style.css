@@ -15,7 +15,6 @@ html, body {
   align-items: center;
   justify-content: flex-end;
 
-  /* Background stack: vignette behind logo, then logo, then deep gradient */
   background:
     radial-gradient(circle at center,
       rgba(4,11,24,0.0) 0%,
@@ -31,8 +30,6 @@ html, body {
       rgba(4,11,24,0) 100%
     );
 }
-
-
 
 .hero-logo {
   width: 100%;
@@ -61,13 +58,10 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 85px);
   grid-template-rows: repeat(2, 85px);
-
   row-gap: 32px;
   column-gap: 28px;
-
   justify-content: center;
-
-  overflow: visible; /* <-- REQUIRED so hover labels can float above */
+  overflow: visible;
 }
 
 /* --- TILE STYLE --- */
@@ -83,90 +77,38 @@ html, body {
   width: 85px;
   height: 85px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-
-  z-index: 2; /* <-- ensures tile sits above grid base */
-  overflow: visible; /* <-- allows label to escape tile */
-}
-
-.tile:hover {
-  height: 115px;
-  background: rgba(16, 29, 51, 0.95);
-  border-color: #d4af37;
+  z-index: 2;
+  overflow: visible;
 }
 
 .tile img {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
-.tile:hover img {
-  transform: translateY(-12px);
-}
-
+/* --- LABEL ALWAYS VISIBLE BELOW ICON --- */
 .tile span {
-  position: absolute;
-  bottom: 100%; /* pop upward above the tile */
-  left: 50%;
-  transform: translateX(-50%) translateY(8px);
-
-  background: rgba(0, 0, 0, 0.75);
-  padding: 6px 10px;
-  border-radius: 6px;
-
+  display: block;
+  margin-top: 6px;
   font-size: 0.75rem;
   font-weight: 600;
   color: #d4af37;
+  text-align: center;
   white-space: nowrap;
-
-  opacity: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-
-  z-index: 50; /* <-- stays above all icons */
-  pointer-events: none; /* prevents weird mobile tap behavior */
-}
-
-.tile:hover span {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
 }
 
 /* --- MOBILE TWEAKS --- */
-@media (max-width: 480px) {
-  .hero {
-    min-height: 55vh;
-    background-position: center 10%;
-  }
-
+@media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, 70px);
-    grid-template-rows: repeat(2, 70px);
-    gap: 16px;
-  }
-
-  .tile {
-    width: 70px;
-    height: 70px;
-  }
-
-  .tile img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tile span {
-    bottom: 4px;
-    transform: translateY(6px);
-  }
-
-  .tile:hover span {
-    transform: translateY(-4px);
+    grid-template-columns: repeat(2, 85px);
+    row-gap: 28px;
+    column-gap: 24px;
   }
 }
+
