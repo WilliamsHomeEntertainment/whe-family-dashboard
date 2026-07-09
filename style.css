@@ -46,7 +46,7 @@ body {
 /* --- MOBILE SPACING (closer on phones) --- */
 @media (max-width: 480px) {
   .container {
-    margin-top: 22vh; /* closer spacing for small screens */
+    margin-top: 38vh; /* closer spacing for small screens */
   }
 }
 
