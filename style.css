@@ -45,9 +45,9 @@ body {
 /* --- MOBILE: TRUE 3x2 GRID + MOBILE HOVER FIX --- */
 @media (max-width: 768px) {
 
-  /* Place icons closer to hero */
+  /* Place icons just below hero */
   .container {
-    margin-top: 32vh;   /* closer to hero, adjust if needed */
+    margin-top: clamp(36vh, 40vh, 44vh); /* responsive hero spacing */
     padding-bottom: 4vh;
     display: block;
   }
