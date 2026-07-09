@@ -89,7 +89,7 @@ body {
 }
 
 /* --- TABLET LAYOUT --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .grid {
     display: grid !important;
     grid-template-columns: repeat(2, 85px);
