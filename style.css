@@ -110,19 +110,29 @@ html, body {
 
 .tile span {
   position: absolute;
-  bottom: 12px;
+  bottom: 100%; /* pop upward above the tile */
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+
+  background: rgba(0, 0, 0, 0.75);
+  padding: 6px 10px;
+  border-radius: 6px;
+
   font-size: 0.75rem;
   font-weight: 600;
   color: #d4af37;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
   white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  z-index: 50; /* <-- stays above all icons */
+  pointer-events: none; /* prevents weird mobile tap behavior */
 }
 
 .tile:hover span {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(-4px);
 }
 
 /* --- MOBILE TWEAKS --- */
