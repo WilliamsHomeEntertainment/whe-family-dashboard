@@ -43,31 +43,51 @@ body {
   width: 100%;
 }
 
-/* --- MOBILE SPACING (closer on phones) --- */
+/* --- MOBILE: TRUE 3x2 GRID + FIX LABEL OVERLAP --- */
 @media (max-width: 480px) {
-  .container {
-    margin-top: 38vh; /* closer spacing for small screens */
-  }
-}
 
-@media (max-width: 768px) {
+  /* Push icons to bottom */
   .container {
-    margin-top: auto;        /* stop forcing icons upward */
-    padding-bottom: 6vh;     /* add breathing room at bottom */
+    margin-top: auto;
+    padding-bottom: 6vh;
     display: flex;
-    justify-content: flex-end; /* push grid to bottom */
+    justify-content: flex-end;
   }
 
+  /* 3x2 grid that actually fits on phones */
   .grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 85px); /* 3 across */
-    grid-template-rows: repeat(2, 85px);    /* 2 down */
-    gap: 20px !important;
+    grid-template-columns: repeat(3, 70px); /* smaller icons fit 3 across */
+    grid-template-rows: repeat(2, 70px);
+    gap: 16px !important;
     justify-content: center;
     width: 100% !important;
     padding: 0;
   }
+
+  /* Shrink tile size */
+  .tile {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Shrink icon image */
+  .tile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Fix label overlap */
+  .tile span {
+    bottom: 4px;
+    transform: translateY(6px);
+  }
+
+  .tile:hover span {
+    transform: translateY(-4px); /* pop upward */
+  }
 }
+
 
 /* --- TABLET LAYOUT --- */
 @media (max-width: 768px) {
