@@ -2,121 +2,68 @@
 html, body {
   height: 100%;
   margin: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
   font-family: system-ui, -apple-system, sans-serif;
-
-  background: 
-    url('backgrounds/WHE-Brand-Logo.png') center 5% / contain no-repeat fixed,
-    radial-gradient(circle at center, #0e1a2d 0%, #040b18 60%, #040b18 100%);
-
   background-color: #040b18;
   color: #fff;
 }
 
-/* --- HIDE DEFAULT PAGE TITLE --- */
-.page-title {
-  display: none !important;
-}
-
-/* --- HERO-CENTRIC LAYOUT --- */
-.container {
-  margin-top: clamp(28vh, 34vh, 42vh);
-  min-height: 100vh;
+/* --- HERO SECTION --- */
+.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  min-height: 60vh;
+  background:
+    url('backgrounds/WHE-Brand-Logo.png') center 20% / contain no-repeat,
+    radial-gradient(circle at center, #0e1a2d 0%, #040b18 60%, #040b18 100%);
+}
+
+.hero-logo {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
+
+.hero-title {
+  margin-top: 2vh;
+  font-size: 1.4rem;
+  color: #d4af37;
+  text-align: center;
+}
+
+/* --- ICON GRID BELOW HERO --- */
+.container {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 
-/* --- ICON GRID --- */
+/* --- GRID LAYOUT --- */
 .grid {
-  display: flex;
-  gap: 24px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 85px);
+  grid-template-rows: repeat(2, 85px);
+  gap: 20px;
   justify-content: center;
-  width: 100%;
 }
 
-/* --- MOBILE: TRUE 3x2 GRID + MOBILE HOVER FIX --- */
-@media (max-width: 768px) {
-
-  /* Fix background alignment on mobile */
-  body {
-    background-position: center top;
-  }
-
-  /* Center container + prevent overlap */
-  .container {
-    margin-top: clamp(54vh, 58vh, 62h); /* your current spacing */
-    padding-bottom: 4vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* centers grid */
-  }
-
-  /* 3x2 grid with normal spacing */
-  .grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 70px);
-    grid-template-rows: repeat(2, 70px);
-    gap: 24px !important;
-    justify-content: center;
-    width: 100% !important; /* prevents left/right imbalance */
-    padding: 0;
-  }
-
-  .tile {
-    width: 70px;
-    height: 70px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .tile img {
-    width: 40px;
-    height: 40px;
-  }
-
-  .tile span {
-    bottom: 4px;
-    transform: translateY(6px);
-  }
-
-  .tile:hover span {
-    transform: translateY(-4px);
-  }
-
-  .tile:hover {
-    height: 70px;
-    transform: translateY(-10px);
-    z-index: 999;
-  }
-}
-
-/* --- TILE STYLE (DESKTOP) --- */
+/* --- TILE STYLE --- */
 .tile {
   background: rgba(5, 11, 22, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-
   padding: 12px;
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.15);
-
   text-decoration: none;
   color: inherit;
   width: 85px;
   height: 85px;
-
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,18 +72,23 @@ body {
   overflow: hidden;
 }
 
-/* --- DESKTOP HOVER --- */
 .tile:hover {
   height: 115px;
   background: rgba(16, 29, 51, 0.95);
   border-color: #d4af37;
 }
 
+.tile img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
 .tile:hover img {
   transform: translateY(-12px);
 }
 
-/* --- LABEL TEXT --- */
 .tile span {
   position: absolute;
   bottom: 12px;
@@ -154,4 +106,35 @@ body {
   transform: translateY(0);
 }
 
+/* --- MOBILE TWEAKS --- */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 55vh;
+    background-position: center 10%;
+  }
 
+  .grid {
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(2, 70px);
+    gap: 16px;
+  }
+
+  .tile {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tile img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tile span {
+    bottom: 4px;
+    transform: translateY(6px);
+  }
+
+  .tile:hover span {
+    transform: translateY(-4px);
+  }
+}
