@@ -14,10 +14,13 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+
   background:
-    url('backgrounds/WHE-Brand-Logo.png') center 20% / contain no-repeat,
+    linear-gradient(to bottom, rgba(4,11,24,1) 0%, rgba(4,11,24,0.85) 40%, rgba(4,11,24,0.6) 70%, rgba(4,11,24,0) 100%),
+    url('backgrounds/WHE-Brand-Logo.png') center 18% / contain no-repeat,
     radial-gradient(circle at center, #0e1a2d 0%, #040b18 60%, #040b18 100%);
 }
+
 
 .hero-logo {
   width: 100%;
