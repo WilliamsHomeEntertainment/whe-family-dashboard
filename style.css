@@ -49,9 +49,13 @@ html, body {
   display: grid;
   grid-template-columns: repeat(3, 85px);
   grid-template-rows: repeat(2, 85px);
-  gap: 20px;
+
+  row-gap: 32px;      /* vertical spacing between rows */
+  column-gap: 28px;   /* horizontal spacing between icons */
+
   justify-content: center;
 }
+
 
 /* --- TILE STYLE --- */
 .tile {
